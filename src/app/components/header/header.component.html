@@ -1,0 +1,41 @@
+<header class="bg-black text-white px-4 py-4 flex items-center justify-between relative">
+  <!-- Logo -->
+  <div class="flex items-center gap-2">
+    <img src="assets/img/logo.png" alt="Logo" class="h-10" />
+    <span class="text-xl font-bold">MALA IDEA</span>
+  </div>
+
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex items-center gap-6 uppercase tracking-wide">
+    <a href="#" class="hover:underline">Inicio</a>
+    <a href="#" class="hover:underline">Tienda</a>
+    <a href="#" class="hover:underline">Nosotros</a>
+    <a href="#" class="hover:underline">Foro</a>
+    <a href="#" class="hover:underline">Miembros</a>
+    <a href="#" class="hover:underline">Contacto</a>
+
+  </nav>
+
+  <!-- Íconos -->
+  <div class="hidden md:flex items-center gap-4">
+
+  </div>
+
+  <!-- Botón Hamburguesa -->
+  <button class="md:hidden flex flex-col gap-1" (click)="mobileMenuOpen = !mobileMenuOpen">
+    <span class="w-6 h-0.5 bg-white"></span>
+    <span class="w-6 h-0.5 bg-white"></span>
+    <span class="w-6 h-0.5 bg-white"></span>
+  </button>
+
+  <!-- Mobile Nav -->
+  <div *ngIf="mobileMenuOpen"
+    class="absolute top-full left-0 w-full bg-black text-white flex flex-col gap-4 p-4 md:hidden">
+    <a href="#" class="hover:underline">Inicio</a>
+    <a href="#" class="hover:underline">Tienda</a>
+    <a href="#" class="hover:underline">Nosotros</a>
+    <a href="#" class="hover:underline">Foro</a>
+    <a href="#" class="hover:underline">Miembros</a>
+    <a href="#" class="hover:underline">Contacto</a>
+  </div>
+</header>

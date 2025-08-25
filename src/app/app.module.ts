@@ -10,6 +10,11 @@ import { ProductGalleryComponent } from './components/product-gallery/product-ga
 import { FooterComponent } from './components/footer/footer.component';
 import { FloatingChatComponent } from './components/floating-chat/floating-chat.component';
 import { PopularProductsComponent } from './components/popular-products/popular-products.component';
+import { TiendaComponent } from './tienda/tienda.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +26,16 @@ import { PopularProductsComponent } from './components/popular-products/popular-
     FooterComponent,
     FloatingChatComponent,
     PopularProductsComponent,
+    TiendaComponent,
+    ProductDetailComponent,
+    AboutUsComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

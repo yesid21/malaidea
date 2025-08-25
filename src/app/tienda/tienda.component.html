@@ -1,0 +1,59 @@
+<section class="w-full min-h-screen bg-[#E5E5E5] flex">
+  <!-- Sidebar filtros -->
+  <aside class="hidden md:block w-64 bg-black text-white p-6">
+    <h3 class="font-bold text-lg mb-4">FILTROS</h3>
+
+    <!-- Precio -->
+    <div class="mb-6">
+      <h4 class="text-sm font-semibold mb-2">Precio</h4>
+      <input type="range" min="10000" max="120000" [(ngModel)]="filtroPrice" class="w-full accent-red-600" />
+      <div class="flex justify-between text-xs mt-1">
+        <span>$10.000</span>
+        <span>{{ filtroPrice | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+      </div>
+    </div>
+
+    <!-- Tamaño -->
+    <div>
+      <h4 class="text-sm font-semibold mb-2">Tamaño</h4>
+      <div class="flex flex-col space-y-2">
+        <label><input type="checkbox" (change)="toggleTalla('S')" /> S</label>
+        <label><input type="checkbox" (change)="toggleTalla('M')" /> M</label>
+        <label><input type="checkbox" (change)="toggleTalla('L')" /> L</label>
+        <label><input type="checkbox" (change)="toggleTalla('XL')" /> XL</label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Contenido principal -->
+  <div class="flex-1">
+    <!-- Banner -->
+    <div class="relative h-60 bg-black flex items-center justify-center">
+      <h1 class="text-white text-4xl font-bold border-2 border-white px-10 py-2 tracking-wide">
+        TIENDA
+      </h1>
+    </div>
+
+    <!-- Barra superior -->
+    <div class="flex justify-end items-center px-6 py-4 bg-[#C7C7C7]">
+      <label for="orden" class="text-sm mr-2">Ordenar por:</label>
+      <select id="orden" [(ngModel)]="orden" class="border rounded px-2 py-1">
+        <option value="recientes">Más recientes</option>
+        <option value="price-asc">Precio: Menor a Mayor</option>
+        <option value="price-desc">Precio: Mayor a Menor</option>
+      </select>
+    </div>
+
+    <!-- Grid productos -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+      <div *ngFor="let producto of productosFiltrados"
+        class="bg-white rounded-lg shadow overflow-hidden hover:scale-105 transition" (click)="verDetalle(producto.id)">
+        <img [src]="producto.imageUrl" [alt]="producto.name" class="w-full h-64 object-cover rounded-t-lg" />
+        <div class="p-4 text-center">
+          <h3 class="font-semibold">{{ producto.name }}</h3>
+          <span class="text-sm text-gray-600">{{ producto.price | currency:'COP':'symbol-narrow':'1.0-0' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
